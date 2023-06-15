@@ -7,13 +7,8 @@
 int main () {
     char tipo;
     int chave;
-    struct node *table1 = malloc(sizeof(struct node) * M);
-    struct node *table2 = malloc(sizeof(struct node) * M);
-
-    struct tables *tablesContainer = malloc(sizeof(struct tables));
-
-    tablesContainer->table1 = table1;
-    tablesContainer->table2 = table2;
+    
+    struct tables *tablesContainer = initializeTables(M);
 
     while (scanf("%c %d\n", &tipo, &chave) == 2) {
         if (tipo == 'i') {
@@ -27,7 +22,9 @@ int main () {
         }
     }
 
-    print(tablesContainer);
+    printTree(tablesContainer);
+
+    freeTables(tablesContainer);
 
     return 0;
 }
