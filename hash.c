@@ -79,7 +79,9 @@ void insert (struct tables *tablesContainer, int key) {
 void delete (struct tables *tablesContainer, int key) {
     int searchResult = search(tablesContainer, key);
 
-    if (tablesContainer->table2[searchResult].key == key){
+    if (searchResult == -1){
+        return;
+    } else if (tablesContainer->table2[searchResult].key == key){
         tablesContainer->table2[searchResult].full = 0;
     } else if (tablesContainer->table1[searchResult].key == key) {
         tablesContainer->table1[searchResult].full = 0;
