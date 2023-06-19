@@ -59,6 +59,8 @@ void insert (struct tables *tablesContainer, int key) {
     
     struct node *aux = initializeNode();
 
+    if(search(tablesContainer, key) != -1)
+        return;
     if (!tablesContainer->table1[hash1].full){
         tablesContainer->table1[hash1].key = key;
         tablesContainer->table1[hash1].full = 1;
